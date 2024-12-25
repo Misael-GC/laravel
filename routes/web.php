@@ -1,27 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('home');
+});
 
 /*rutas url, que te mandan a los diferentes sitios */
 
-Route::get('/', function () {
-    return 'Home';
-});
-
 Route::get('blog', function () {
-    return 'Listado de publicaciones';
+    $posts = [
+        ['id' => 1, 'title' => 'PHP', 'slug' => 'php'],
+        ['id' => 2, 'title' => 'laravel', 'slug' => 'laravel']
+    ];
+
+    return view('blog', ['posts' => $posts]);
 });
 
 Route::get('blog/{slug}', function ($slug) {
-    return $slug;
-});
-
-Route::get('buscar', function (Request $request) {
-    return $request->all();
+    //consulta a la BD
+    $post = $slug;
+    return view('post', ['post' => $post]);
 });
