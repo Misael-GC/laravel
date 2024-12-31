@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('posts', function (Blueprint $table) {
-        //     $table->id();
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
 
-        //     $table->string('title');
-        //     $table->string('slug')->unique();
-        //     $table->text('body');
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('body');
 
-        //     $table->timestamps();
-        // });
+            $table->timestamps();
+        });
     }
 
     /**
